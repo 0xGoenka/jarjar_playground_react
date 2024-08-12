@@ -35,23 +35,23 @@ import { generateAiInference } from "./generateAiInference";
 const arrNft = [
   {
     explorer:
-      "https://suiexplorer.com/object/0x276a4b2fea48d3614f623b31e21490bad52e1cda06a9b8a803fe26308fadbe22?deviceId=ab0f1ffe-4016-4550-984f-becee9f1ac08&network=testnet",
-    url: "https://jarjar.xyz.s3.amazonaws.com/2b2595bb-5859-481b-b873-33319d43afc8",
+      "https://testnet.suivision.xyz/object/0x127b6ee242289e85e7ab083e5d933e1206cbdbfa351daa33f36c2879abf06765",
+    url: "https://jarjar-mainnet.s3.eu-north-1.amazonaws.com/c4c721d4-db7d-4111-aa37-0494d420e1e0",
   },
   {
     explorer:
-      "https://suiexplorer.com/object/0x276a4b2fea48d3614f623b31e21490bad52e1cda06a9b8a803fe26308fadbe22?deviceId=ab0f1ffe-4016-4550-984f-becee9f1ac08&network=testnet",
-    url: "https://jarjar.xyz.s3.amazonaws.com/6532a637-10b4-4138-b5b2-b537c62bd764",
+      "https://testnet.suivision.xyz/object/0x62e8ce3f9bfb204073a4831105525a2dcc2c4b0cb2373431ab4a64cd66605401",
+    url: "https://jarjar-mainnet.s3.eu-north-1.amazonaws.com/90278ac9-058b-497e-89d1-989bb0b4d7de",
   },
   {
     explorer:
-      "https://suiexplorer.com/object/0x276a4b2fea48d3614f623b31e21490bad52e1cda06a9b8a803fe26308fadbe22?deviceId=ab0f1ffe-4016-4550-984f-becee9f1ac08&network=testnet",
-    url: "https://jarjar.xyz.s3.amazonaws.com/c538081a-260c-408d-aae0-ee9c5166a269",
+      "https://testnet.suivision.xyz/object/0x72128c756a4b0ad92b5f4f18e25498f32efc1e63100a65a1daab6fd8c2b4bfbc",
+    url: "https://jarjar-mainnet.s3.eu-north-1.amazonaws.com/b41ae289-62ca-4ab9-a0f2-94cc731eb942",
   },
   {
     explorer:
-      "https://suiexplorer.com/object/0x276a4b2fea48d3614f623b31e21490bad52e1cda06a9b8a803fe26308fadbe22?deviceId=ab0f1ffe-4016-4550-984f-becee9f1ac08&network=testnet",
-    url: "https://jarjar.xyz.s3.amazonaws.com/ab9ffd38-962f-4e21-b6d9-9606f7331c8f",
+      "https://testnet.suivision.xyz/object/0x7704b6cd95d3323256867149411a08018c1fc657694549a232e82411cc76b144",
+    url: "https://jarjar-mainnet.s3.eu-north-1.amazonaws.com/9f432958-8b4b-4cf6-9130-1ce44b36005d",
   },
 ];
 
