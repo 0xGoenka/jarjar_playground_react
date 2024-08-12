@@ -8,10 +8,6 @@ export const generateAiInference = (
 ) => {
   const tx = new Transaction();
   const ownercap = tx.object(import.meta.env.VITE_OWNERCAP_ID);
-  console.log(
-    "import.meta.env.VITE_OWNERCAP_ID",
-    import.meta.env.VITE_OWNERCAP_ID,
-  );
   const [coin] = tx.splitCoins(tx.gas, [50000000]);
   tx.moveCall({
     arguments: [
