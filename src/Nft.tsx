@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { generateAiInference } from "./generateAiInference";
+import ReactGA from "react-ga";
 
 const arrNft = [
   {
@@ -67,6 +68,10 @@ export const Nft = () => {
     if (code === "Sui First Ai oracle = JarJar.xyz") {
       setOpen(false);
       toast.success("Code is correct you can now mint your NFT");
+      ReactGA.event({
+        category: "Mint_Code",
+        action: "Code is correct",
+      });
     }
   }, [code]);
 
@@ -139,6 +144,12 @@ export const Nft = () => {
                       href="https://discord.gg/ysBe8XGFtd"
                       target="_blank"
                       className="text-center text-md mt-2 w-full underline"
+                      onClick={() => {
+                        ReactGA.event({
+                          category: "Mint_Discord",
+                          action: "Clicked",
+                        });
+                      }}
                     >
                       <div className="flex flex-row justify-center">
                         <span className="ml-1">Discord link</span>
@@ -152,6 +163,12 @@ export const Nft = () => {
                 <ShdcnButton
                   className="bg-white text-black rounded-[8px] text-lg"
                   variant={"outline"}
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Mint_Submit",
+                      action: "Clicked",
+                    });
+                  }}
                 >
                   Submit
                 </ShdcnButton>
@@ -159,6 +176,12 @@ export const Nft = () => {
                   <ShdcnButton
                     className="rounded-[8px] text-lg"
                     variant="outline"
+                    onClick={() => {
+                      ReactGA.event({
+                        category: "Mint_Cancel",
+                        action: "Clicked",
+                      });
+                    }}
                   >
                     Cancel
                   </ShdcnButton>

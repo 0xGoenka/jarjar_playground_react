@@ -1,6 +1,7 @@
 import { SuiClient } from "@mysten/sui/client";
 import { Transaction } from "@mysten/sui/transactions";
 import { toast } from "sonner";
+import ReactGA from "react-ga";
 
 export const generateAiInference = (
   signAndExecute: any,
@@ -40,10 +41,18 @@ export const generateAiInference = (
         toast.success(
           "Success minting your NFT, it should appear in your wallet in a few seconds (10s-20s)",
         );
+        ReactGA.event({
+          category: "Mint",
+          action: "Success",
+        });
       },
       onError: (error: any) => {
         console.error("Error signing and executing transaction", error);
         toast.error("Error signing and executing transaction", error);
+        ReactGA.event({
+          category: "Mint",
+          action: "Error",
+        });
       },
     },
   );
