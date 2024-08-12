@@ -12,7 +12,11 @@ import "./app.css";
 import ReactGA from "react-ga4";
 
 ReactGA.initialize("G-RPNVRXK9JB");
-ReactGA.send({ hitType: "pageview", page: "/", title: "mint.jarjar.xyz/" });
+ReactGA.send({
+  hitType: "pageview mint.jarjar.xyz/",
+  page: "/",
+  title: "mint.jarjar.xyz/",
+});
 
 const queryClient = new QueryClient();
 
