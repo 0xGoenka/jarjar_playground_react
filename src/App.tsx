@@ -20,10 +20,6 @@ const { networkConfig } = createNetworkConfig({
 });
 
 function App() {
-  console.log(
-    "import.meta.env.VITE_SUI_NETWORK",
-    import.meta.env.VITE_SUI_NETWORK,
-  );
   return (
     <QueryClientProvider client={queryClient}>
       <SuiClientProvider
