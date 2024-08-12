@@ -43,7 +43,7 @@ export const generateAiInference = (
         );
         ReactGA.event({
           category: "Mint",
-          action: "Success",
+          action: "Mint_Success",
         });
       },
       onError: (error: any) => {
@@ -51,7 +51,7 @@ export const generateAiInference = (
         toast.error("Error signing and executing transaction", error);
         ReactGA.event({
           category: "Mint",
-          action: "Error",
+          action: "Mint_Error",
         });
       },
     },

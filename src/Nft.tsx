@@ -70,7 +70,7 @@ export const Nft = () => {
       toast.success("Code is correct you can now mint your NFT");
       ReactGA.event({
         category: "Mint_Code",
-        action: "Code is correct",
+        action: "Mint_Code Code is correct",
       });
     }
   }, [code]);
@@ -147,7 +147,7 @@ export const Nft = () => {
                       onClick={() => {
                         ReactGA.event({
                           category: "Mint_Discord",
-                          action: "Clicked",
+                          action: "Clicked Mint_Discord",
                         });
                       }}
                     >
@@ -166,7 +166,7 @@ export const Nft = () => {
                   onClick={() => {
                     ReactGA.event({
                       category: "Mint_Submit",
-                      action: "Clicked",
+                      action: "Clicked Mint_Submit",
                     });
                   }}
                 >
@@ -179,7 +179,7 @@ export const Nft = () => {
                     onClick={() => {
                       ReactGA.event({
                         category: "Mint_Cancel",
-                        action: "Clicked",
+                        action: "Clicked Mint_Cancel",
                       });
                     }}
                   >
