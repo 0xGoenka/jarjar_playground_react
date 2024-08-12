@@ -38,7 +38,7 @@ export const generateAiInference = (
         });
         console.log({ tx });
         toast.success(
-          "Success minting your NFT, it should appear in your wallet in a few seconds (10-20)",
+          "Success minting your NFT, it should appear in your wallet in a few seconds (10s-20s)",
         );
       },
       onError: (error: any) => {
