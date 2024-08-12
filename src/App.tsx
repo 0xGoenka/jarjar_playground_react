@@ -9,10 +9,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createNetworkConfig } from "@mysten/dapp-kit";
 import { Nft } from "./Nft";
 import "./app.css";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 ReactGA.initialize("G-RPNVRXK9JB");
-ReactGA.pageview(window.location.pathname + window.location.search);
+ReactGA.send({ hitType: "pageview", page: "/", title: "mint.jarjar.xyz/" });
 
 const queryClient = new QueryClient();
 

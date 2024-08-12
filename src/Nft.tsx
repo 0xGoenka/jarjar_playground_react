@@ -31,7 +31,7 @@ import {
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { generateAiInference } from "./generateAiInference";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 const arrNft = [
   {

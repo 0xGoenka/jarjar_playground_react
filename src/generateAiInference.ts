@@ -1,7 +1,7 @@
 import { SuiClient } from "@mysten/sui/client";
 import { Transaction } from "@mysten/sui/transactions";
 import { toast } from "sonner";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 export const generateAiInference = (
   signAndExecute: any,
