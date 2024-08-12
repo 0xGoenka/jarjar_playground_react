@@ -6,4 +6,6 @@ Interacting with AI Oracle on testnet
 
 run with `npm run dev`
 
-access prod at `https://mint.jarjar.xyz`
+access prod at [https://mint.jarjar.xyz](https://mint.jarjar.xyz)
+
+
