@@ -18,6 +18,12 @@ export const generateAiInference = (
           size: import.meta.env.VITE_PROMPT_SIZE,
         }),
       ),
+      tx.pure.string(
+        JSON.stringify([
+          import.meta.env.VITE_PROMPT_NAME,
+          import.meta.env.VITE_PROMPT_DESCRIPTION,
+        ]),
+      ),
       tx.pure.string(import.meta.env.VITE_MODEL_NAME),
       coin,
       ownercap,
