@@ -112,7 +112,6 @@ export const Nft = () => {
           highContrast
           size="4"
           onClick={mintNft}
-          disabled
         >
           Mint
         </Button>
