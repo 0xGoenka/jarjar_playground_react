@@ -47,7 +47,7 @@ function App() {
             >
               <Box>
                 <Heading>
-                  JARJAR 1# Collection on{" "}
+                  Jar Jar Binks Eggs Collection on{" "}
                   <span className="text-blue-400">$SUI</span>
                 </Heading>
                 <Heading className="text-sm text-gray-400 mt-2">

@@ -36,23 +36,23 @@ import ReactGA from "react-ga4";
 const arrNft = [
   {
     explorer:
-      "https://testnet.suivision.xyz/object/0x127b6ee242289e85e7ab083e5d933e1206cbdbfa351daa33f36c2879abf06765",
-    url: "https://jarjar-mainnet.s3.eu-north-1.amazonaws.com/c4c721d4-db7d-4111-aa37-0494d420e1e0",
+      "https://suiscan.xyz/testnet/object/0x3ab123d085a9365c6f18a81c5c3090e5f4c8888f9aea1512f9d806cdb5ab15c3",
+    url: "https://jarjar-mainnet.s3.amazonaws.com/5d41443c-c9b3-4e19-afa7-bcf628126af5",
   },
   {
     explorer:
-      "https://testnet.suivision.xyz/object/0x62e8ce3f9bfb204073a4831105525a2dcc2c4b0cb2373431ab4a64cd66605401",
-    url: "https://jarjar-mainnet.s3.eu-north-1.amazonaws.com/90278ac9-058b-497e-89d1-989bb0b4d7de",
+      "https://suiscan.xyz/testnet/object/0x43b638fa323fd3ab24b284f8c11ccc7936785b3dcb02de6cf75091a22a553496",
+    url: "https://jarjar-mainnet.s3.amazonaws.com/9c1729f3-a2f6-4bf0-b780-811e82935238",
   },
   {
     explorer:
-      "https://testnet.suivision.xyz/object/0x72128c756a4b0ad92b5f4f18e25498f32efc1e63100a65a1daab6fd8c2b4bfbc",
-    url: "https://jarjar-mainnet.s3.eu-north-1.amazonaws.com/b41ae289-62ca-4ab9-a0f2-94cc731eb942",
+      "https://suiscan.xyz/testnet/object/0xffe743c79bca8c0892a0daede9dd8b5603c78c7f90c3755fc5f37cf7c2f4943b",
+    url: "https://jarjar-mainnet.s3.amazonaws.com/d4ba2167-1e15-47c7-8808-281391f5b9fb",
   },
   {
     explorer:
-      "https://testnet.suivision.xyz/object/0x7704b6cd95d3323256867149411a08018c1fc657694549a232e82411cc76b144",
-    url: "https://jarjar-mainnet.s3.eu-north-1.amazonaws.com/9f432958-8b4b-4cf6-9130-1ce44b36005d",
+      "https://suiscan.xyz/testnet/object/0x61a5009fc2a23773c2490652ea30417751283e9335b2eae6df56123bdd36850f",
+    url: "https://jarjar-mainnet.s3.amazonaws.com/10da6af9-29e1-4b8d-af92-9a39011303f1",
   },
 ];
 
@@ -96,10 +96,10 @@ export const Nft = () => {
     <div>
       <Toaster />
       <Heading className="text-center mt-32">
-        Mint your own AI Mysticeti
+        Mint your own AI gen Jar Jar Binks Eggs on Testnet
       </Heading>
       <Heading className="text-center text-gray-500 mt-4 text-[20px]">
-        Be cooler than a whale, be a Mysticeti
+        Generated at the smart contract level
       </Heading>
       <div className="flex flex-col items-center justify-center">
         <CarrousselNft />
