@@ -1,8 +1,8 @@
 import { createContext, useContext } from "react";
-import { ApiService } from "./api.service";
+// import { ApiService } from "./api.service";
 import { MoveTxService } from "../services/move-tx.service";
 
-const apiService = new ApiService();
+// const apiService = new ApiService();
 const moveTxService = new MoveTxService();
 
 export const services = {
