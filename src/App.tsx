@@ -10,6 +10,7 @@ import { createNetworkConfig } from "@mysten/dapp-kit";
 import { Nft } from "./Nft";
 import "./app.css";
 import ReactGA from "react-ga4";
+import { MintedNfts } from "./MintedNfts";
 
 ReactGA.initialize("G-RPNVRXK9JB");
 ReactGA.send({
@@ -59,7 +60,8 @@ function App() {
               </Box>
             </Flex>
             <Nft />
-            <div className="mt-32">
+            <MintedNfts />
+            <div className="mt-32 mb-8">
               By generating this NFT, you make yourself eligible for the $JARJAR
               airdrop. The airdrop will be distributed to all holders of the
               JARJAR 1# collection on the Sui blockchain.

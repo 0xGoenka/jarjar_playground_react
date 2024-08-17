@@ -45,7 +45,7 @@ export const generateAiInference = (
         });
         console.log({ tx });
         toast.success(
-          "Success minting your NFT, it should appear in your wallet in a few seconds (10s-20s)",
+          "Success minting your NFT, it should appear in your wallet in a few seconds (30s) depending on network congestion",
         );
         ReactGA.event({
           category: "Mint",

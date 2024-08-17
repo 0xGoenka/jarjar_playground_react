@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button, Flex, Heading } from "@radix-ui/themes";
+import { Box, Button, Flex, Heading } from "@radix-ui/themes";
 import {
   useCurrentWallet,
   useSignAndExecuteTransaction,
@@ -16,7 +16,7 @@ import {
 } from "@mysten/dapp-kit";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button as ShdcnButton } from "@/components/ui/button";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 
@@ -32,6 +32,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { generateAiInference } from "./generateAiInference";
 import ReactGA from "react-ga4";
+import axios from "axios";
 
 const arrNft = [
   {
@@ -61,6 +62,7 @@ export const Nft = () => {
   const [code, setCode] = useState("");
   const [open, setOpen] = useState(false);
   const suiClient = useSuiClient();
+  const [queueSize, setQueueSize] = useState(0);
   const { mutate: signAndExecute } = useSignAndExecuteTransaction();
   // console.log(useWallet);
 
@@ -75,6 +77,32 @@ export const Nft = () => {
     }
   }, [code]);
 
+  const updateQueueSize = () => {
+    axios
+      .get(`${import.meta.env.VITE_JARJAR_RPC_URL}/gen-txs/queue-size`)
+      .then((res) => {
+        setQueueSize(res.data.queueSize);
+      });
+  };
+
+  useEffect(() => {
+    updateQueueSize();
+    const interval = setInterval(updateQueueSize, 20000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const [countdown, setCountdown] = useState(0);
+
+  useEffect(() => {
+    if (countdown === 0) {
+      return;
+    }
+    const interval = setInterval(() => {
+      setCountdown(countdown - 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [countdown]);
+
   const mintNft = async () => {
     if (!currentWallet) {
       toast.error("Please connect your wallet");
@@ -87,6 +115,7 @@ export const Nft = () => {
     }
     try {
       await generateAiInference(signAndExecute, suiClient);
+      setCountdown(60);
     } catch (error) {
       console.log(error);
     }
@@ -104,17 +133,21 @@ export const Nft = () => {
       <div className="flex flex-col items-center justify-center">
         <CarrousselNft />
       </div>
-      <Flex className="mt-32 justify-center">
+      <Flex className="mt-32 justify-center flex-col">
         <Button
           className="cursor-pointer"
           color="gray"
           variant="solid"
           highContrast
           size="4"
+          disabled={countdown !== 0}
           onClick={mintNft}
         >
-          Mint
+          {countdown === 0 ? "Mint" : "Mint again in " + countdown + " seconds"}
         </Button>
+        <div className="text-center mt-4 text-gray-400">
+          Queue size: {queueSize}
+        </div>
       </Flex>
 
       <div className="shadow-slate-800 bg-black">
@@ -197,42 +230,49 @@ export const Nft = () => {
 
 export const CarrousselNft = () => {
   return (
-    <Carousel
-      className="w-full sm:max-w-screen-lg max-w-[300px] mt-32"
-      opts={{
-        align: "start",
-        loop: true,
-      }}
-      plugins={[
-        Autoplay({
-          delay: 2000,
-        }),
-      ]}
-    >
-      <CarouselContent className="-ml-1">
-        {arrNft.map((nft, index) => (
-          <CarouselItem
-            key={index}
-            className="pl-1 md:basis-1/2 lg:basis-1/3 sm:basis-1/1"
-          >
-            <div className="p-1">
-              <NftImage nfturl={nft.url} />
-              <div className="text-center">
-                <a
-                  href={nft.explorer}
-                  target="_blank"
-                  className="text-center text-sm mt-2 w-full hover:underline"
-                >
-                  View on Explorer
-                </a>
+    <div>
+      <Flex className="mt-32 justify-center">
+        <Box>
+          <Heading>Latest minted NFTs</Heading>
+        </Box>
+      </Flex>
+      <Carousel
+        className="w-full sm:max-w-screen-lg max-w-[300px] mt-8"
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 2000,
+          }),
+        ]}
+      >
+        <CarouselContent className="-ml-1">
+          {arrNft.map((nft, index) => (
+            <CarouselItem
+              key={index}
+              className="pl-1 md:basis-1/2 lg:basis-1/3 sm:basis-1/1"
+            >
+              <div className="p-1">
+                <NftImage nfturl={nft.url} />
+                <div className="text-center">
+                  <a
+                    href={nft.explorer}
+                    target="_blank"
+                    className="text-center text-sm mt-2 w-full hover:underline"
+                  >
+                    View on Explorer
+                  </a>
+                </div>
               </div>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
   );
 };
 
