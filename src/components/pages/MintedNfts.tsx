@@ -7,7 +7,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "./components/ui/carousel";
+} from "../ui/carousel";
 import { NftImage } from "./Nft";
 import Autoplay from "embla-carousel-autoplay";
 import { Box, Flex, Heading } from "@radix-ui/themes";

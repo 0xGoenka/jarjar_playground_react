@@ -1,6 +1,6 @@
 import Autoplay from "embla-carousel-autoplay";
 
-import "./app.css";
+import "../../app.css";
 import {
   Carousel,
   CarouselContent,
@@ -16,7 +16,7 @@ import {
 } from "@mysten/dapp-kit";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button as ShdcnButton } from "@/components/ui/button";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 
@@ -30,9 +30,9 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
-import { generateAiInference } from "./generateAiInference";
 import ReactGA from "react-ga4";
 import axios from "axios";
+import { useServices } from "@/domain/core/services";
 
 const arrNft = [
   {
@@ -64,6 +64,7 @@ export const Nft = () => {
   const suiClient = useSuiClient();
   const [queueSize, setQueueSize] = useState(0);
   const { mutate: signAndExecute } = useSignAndExecuteTransaction();
+  const { moveTxService } = useServices();
   // console.log(useWallet);
 
   useEffect(() => {
@@ -114,7 +115,7 @@ export const Nft = () => {
       return;
     }
     try {
-      await generateAiInference(signAndExecute, suiClient);
+      await moveTxService.callOracleSmartContract(signAndExecute, suiClient);
       setCountdown(60);
     } catch (error) {
       console.log(error);
