@@ -35,8 +35,10 @@ export const Content = () => {
     <div className="main">
       <div className="flex flex-row justify-between">
         <div>
-          <h1>Eggs Collection</h1>
-          <p>AI-generated art inspired by a galaxy far, far away.</p>
+          <h1 className="mb-0">Eggs Collection</h1>
+          <p className="text-gray-400">
+            AI-generated art inspired by a galaxy far, far away.
+          </p>
         </div>
         <div>
           <a href="#" className="btn mt-4">
@@ -44,8 +46,9 @@ export const Content = () => {
           </a>
         </div>
       </div>
+      <h2 className="nft-section-title mt-12 ">Latest minted Eggs</h2>
       <Carousel
-        className="w-full sm:max-w-screen-lg max-w-[300px] mt-8 nft-grid overflow-visible"
+        className="w-full sm:max-w-screen-lg max-w-[300px] nft-grid overflow-visible"
         opts={{
           align: "start",
           loop: true,
