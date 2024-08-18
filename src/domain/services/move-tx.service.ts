@@ -1,7 +1,7 @@
 import { SuiClient } from "@mysten/sui/client";
 import { Transaction } from "@mysten/sui/transactions";
 import ReactGA from "react-ga4";
-import { toast } from "sonner";
+import { toast } from "react-hot-toast";
 
 export class MoveTxService {
   suiClient: SuiClient | null = null;

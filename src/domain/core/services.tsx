@@ -1,12 +1,15 @@
 import { createContext, useContext } from "react";
-// import { ApiService } from "./api.service";
+import { ApiService } from "./api.service";
 import { MoveTxService } from "../services/move-tx.service";
+import { RpcService } from "../services/rpc.service";
 
-// const apiService = new ApiService();
+const apiService = new ApiService();
 const moveTxService = new MoveTxService();
+const rpcService = new RpcService(apiService);
 
 export const services = {
   moveTxService,
+  rpcService,
 };
 
 export type Services = typeof services;
