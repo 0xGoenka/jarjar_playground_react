@@ -13,15 +13,12 @@ export const UsersNftCaroussel = () => {
   const { rpcService } = useServices();
   const userNfts = useObservable(rpcService.userNfts);
 
-  console.log({ userNfts });
-
   if (!userNfts?.length) {
     return null;
   }
 
   return (
     <div>
-      {" "}
       <h2 className="nft-section-title mt-12 ">Your minted Eggs</h2>
       <Carousel
         className="w-full sm:max-w-screen-lg max-w-[300px] nft-grid overflow-visible"

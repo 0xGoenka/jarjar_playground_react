@@ -13,7 +13,6 @@ export const LatestNftCaroussel = () => {
   const { rpcService } = useServices();
   const latestNfts = useObservable(rpcService.latestNfts);
 
-  console.log({ latestNfts });
   return (
     <div>
       <h2 className="nft-section-title mt-12 ">Latest minted Eggs</h2>

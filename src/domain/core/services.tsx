@@ -4,8 +4,8 @@ import { MoveTxService } from "../services/move-tx.service";
 import { RpcService } from "../services/rpc.service";
 
 const apiService = new ApiService();
-const moveTxService = new MoveTxService();
 const rpcService = new RpcService(apiService);
+const moveTxService = new MoveTxService(rpcService);
 
 export const services = {
   moveTxService,

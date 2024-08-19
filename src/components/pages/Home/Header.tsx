@@ -18,6 +18,7 @@ export const Header = () => {
 
   useEffect(() => {
     currentAccount && rpcService.setUserAddress(currentAccount.address);
+    moveTxService.checkFreemintCapability(suiClient);
     console.log("addre", currentAccount?.address);
   }, [currentAccount]);
 
@@ -34,7 +35,6 @@ export const Header = () => {
           <button
             disabled={loading}
             onClick={() => {
-              rpcService.loading.set(true);
               moveTxService.callOracleSmartContract(signAndExecute, suiClient);
             }}
             className="btn mt-4 mr-4"

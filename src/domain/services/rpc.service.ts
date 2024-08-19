@@ -27,8 +27,11 @@ export class RpcService {
 
   async getUserNfts(init = false) {
     if (!this.userAddress) return;
-    const url = `/executed-txs/sender/${this.userAddress}`;
-    const response: any = await this.apiService.get(url);
+    const url = `/executed-txs/user/`;
+    const response: any = await this.apiService.post(url, {
+      sender: this.userAddress,
+      packageId: import.meta.env.VITE_MINT_PACKAGE_ID,
+    });
     const userNftsCount = this.userNfts.get()?.length ?? 0;
     const newUserNftsCount = response.data?.length ?? 0;
     if (!init && userNftsCount !== newUserNftsCount) {
@@ -39,8 +42,10 @@ export class RpcService {
   }
 
   async getLatestNfts() {
-    const url = `/executed-txs/`;
-    const response = await this.apiService.get(url);
+    const url = `/executed-txs/latest`;
+    const response = await this.apiService.get(
+      `${url}/${import.meta.env.VITE_MINT_PACKAGE_ID}`,
+    );
     this.latestNfts.set((response.data as any[]) ?? arrNft);
   }
 }
