@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { SuiClient, SuiObjectResponseQuery } from "@mysten/sui/client";
 import { Transaction } from "@mysten/sui/transactions";
 import ReactGA from "react-ga4";

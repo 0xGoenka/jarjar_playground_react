@@ -25,7 +25,6 @@ html {
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 40px;
   padding: 20px;
   border-radius: 15px;
