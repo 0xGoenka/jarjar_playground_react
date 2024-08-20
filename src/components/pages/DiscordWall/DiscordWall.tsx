@@ -8,7 +8,7 @@ type Props = {
 export const DiscordWall = ({ setCode, code }: Props) => {
   return (
     <div className="body">
-      <div className="container">
+      <div className="container-wall">
         <input
           value={code}
           onChange={(e) => setCode(e.target.value)}
