@@ -106,13 +106,16 @@ export class MoveTxService {
         arguments: [tx.object(this.freemintTicket)],
       });
     } else {
+      console.log("No Freemint ticket", this.freemintTicket);
       freemint_ticket = tx.moveCall({
         target: "0x1::option::none",
         typeArguments: [import.meta.env.VITE_FREEMINT_TYPE_ID],
       });
     }
 
-    const price = this.freemintTicket ? 100000000 : 200000000;
+    const price = this.freemintTicket ? 100000000 : 5000000000;
+
+    const price_model = tx.object(import.meta.env.VITE_ORACLE_PRICE_MODEL_ID);
 
     const [coin] = tx.splitCoins(tx.gas, [price]);
     tx.moveCall({
@@ -121,6 +124,7 @@ export class MoveTxService {
         callback_data, // callback_data: String,
         model_name, // model_name: String,
         coin, // mut payment: Coin<SUI>,
+        price_model, // price_model: &mut PriceModel,
         ownercap, // ownerCap: &mut jarjar_ai_oracle::OwnerCap,
         freemint_ticket, // freemint_ticket: option::Option<free_mint::JarJarFreemint>,
         mintCap, // cap: &mut MintCap,
