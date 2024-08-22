@@ -35,7 +35,9 @@ export class RpcService {
     const userNftsCount = this.userNfts.get()?.length ?? 0;
     const newUserNftsCount = response.data?.length ?? 0;
     if (!init && userNftsCount !== newUserNftsCount) {
-      toast.success("New NFTs minted, scroll down to see them");
+      toast.success("New NFTs minted, scroll down to see them", {
+        duration: 5000,
+      });
       this.loading.set(false);
     }
     this.userNfts.set((response.data as any[]) ?? []);

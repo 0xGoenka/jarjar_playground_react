@@ -42,6 +42,7 @@ export class MoveTxService {
       if (objectResponse.data.length !== 0) {
         toast.success(
           `${objectResponse.data.length} free mint capabilities found`,
+          { duration: 5000 },
         );
         this.freemintTicket = objectResponse.data[0].data?.objectId;
         console.log({ freemintTicket: this.freemintTicket });
@@ -144,6 +145,7 @@ export class MoveTxService {
     console.log({ tx });
     toast.success(
       "Success minting your NFT, it should appear in your wallet in a few seconds (30s) depending on network congestion",
+      { duration: 5000 },
     );
     ReactGA.event({
       category: "Mint",
