@@ -8,9 +8,10 @@ body {
 }
 .photo-library {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 3vw;
   max-width: 1200px;
+  padding: 8px;
   width: 100vw;
   margin: 0 auto;
 }
