@@ -30,7 +30,7 @@ function formatPrice(price: any[]) {
   }
   return price.map((price) => {
     return {
-      label: `${price.name}: ${priceToCoin(price.value).toFixed(2)} SUI`,
+      label: `${price.name}: ${priceToCoin(price.value).toFixed(3)} SUI`,
       value: price.name,
     };
   });
