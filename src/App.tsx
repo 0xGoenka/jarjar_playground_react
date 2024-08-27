@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createNetworkConfig } from "@mysten/dapp-kit";
 import ReactGA from "react-ga4";
 import { ServicesProvider } from "@/domain/core/services";
-import { Home } from "./components/pages/Home/Home";
+import { Playground } from "./components/pages/Playground/Playground";
 
 ReactGA.initialize("G-RPNVRXK9JB");
 ReactGA.send({
@@ -32,7 +32,7 @@ function App() {
       >
         <ServicesProvider>
           <WalletProvider autoConnect>
-            <Home />
+            <Playground />
           </WalletProvider>
         </ServicesProvider>
       </SuiClientProvider>
