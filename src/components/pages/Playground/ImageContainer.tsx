@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const ImageContainer = ({ loading, userNfts }: Props) => {
-  if (!userNfts)
+  if (!userNfts || userNfts.length === 0)
     return (
       <div className="result text-black justify-center items-center flex-1">
         <div className="h-full w-full flex flex-col items-center justify-center">

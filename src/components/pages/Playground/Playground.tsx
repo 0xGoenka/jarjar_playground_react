@@ -102,7 +102,11 @@ export const Playground = () => {
         </div>
         <button
           id="generate"
-          onClick={() =>
+          onClick={() => {
+            if (!currentAccount) {
+              toast.error("Please connect your wallet");
+              return;
+            }
             moveTxService.callOracleSmartContract(
               signAndExecute,
               suiClient,
@@ -110,8 +114,8 @@ export const Playground = () => {
               price,
               prompt +
                 ', spelling out "jarjar.xyz" once on the bottom of the image',
-            )
-          }
+            );
+          }}
         >
           Generate Image
         </button>
