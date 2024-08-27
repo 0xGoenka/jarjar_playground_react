@@ -103,7 +103,7 @@ export const Playground = () => {
         <button
           id="generate"
           onClick={() => {
-            if (!currentAccount) {
+            if (!currentAccount?.address) {
               toast.error("Please connect your wallet");
               return;
             }
