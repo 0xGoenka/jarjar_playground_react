@@ -1,6 +1,6 @@
 import "./loader.css";
 
-export const Loader = () => {
+export const Loader = ({ title }: { title?: string }) => {
   return (
     <div className="flex flex-col items-center justify-center flex-1 h-full">
       <div>
@@ -10,7 +10,7 @@ export const Loader = () => {
             <div className="half black-half"></div>
           </div>
         </main>
-        <div className="text-center text-black mt-2">Oracle is thinking...</div>
+        <div className="text-center text-black mt-2">{title}</div>
       </div>
     </div>
   );

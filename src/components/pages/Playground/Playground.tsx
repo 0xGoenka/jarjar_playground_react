@@ -9,8 +9,8 @@ import {
 import { useObservable } from "micro-observables";
 import { useServices } from "@/domain/core/services";
 import toast, { Toaster } from "react-hot-toast";
-import { Loader } from "@/components/ui/Loader";
 import { Library } from "./Library";
+import { ImageContainer } from "./ImageContainer";
 
 function truncateAddress(address: string, numChars: number = 4): string {
   if (address.length <= 2 * numChars) {
@@ -77,17 +77,7 @@ export const Playground = () => {
         </button>
       </div>
       <div className="container">
-        <div className="result">
-          {loading ? (
-            <Loader />
-          ) : (
-            <img
-              className="result-image-img"
-              src={userNfts?.[userNfts.length - 1]?.gen_result}
-              alt="Result Image"
-            />
-          )}
-        </div>
+        <ImageContainer loading={loading} userNfts={userNfts} />
         <div className="input-group">
           <textarea
             value={prompt}
@@ -132,14 +122,7 @@ export const Playground = () => {
         onOpenChange={(open) => setOpen(open)}
       />
       <Toaster />
-      <div>
-        {(userNfts?.length ?? 0) > 0 && (
-          <div className="text-center text-black mt-2">
-            You have {userNfts?.length} NFTs
-          </div>
-        )}
-        <Library userNfts={reversedNfts}></Library>
-      </div>
+      <Library userNfts={reversedNfts}></Library>
     </div>
   );
 };

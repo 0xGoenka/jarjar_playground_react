@@ -40,15 +40,10 @@ body {
   .photo-library {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
-  body {
-  }
 }
 @media (max-width: 400px) {
   .photo-library {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 5vw;
-  }
-  body {
-    padding: 5vw;
   }
 }
