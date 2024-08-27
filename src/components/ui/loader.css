@@ -1,0 +1,64 @@
+:root {
+  --bg-color: #e0e0e0;
+  --text-color: #333;
+  --shadow-light: #ffffff;
+  --shadow-dark: #bebebe;
+  --accent-color: #fd4f2b;
+}
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.character {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    8px 8px 15px var(--shadow-dark),
+    -8px -8px 15px var(--shadow-light);
+}
+.half {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  transition: all 5s ease-in-out;
+}
+.red-half {
+  top: 0;
+  background-color: var(--accent-color);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+.black-half {
+  bottom: 0;
+  background-color: black;
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+@keyframes melt-vertical {
+  0%,
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@keyframes unmelt-vertical {
+  0%,
+  100% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+.red-half {
+  animation: melt-vertical 10s infinite;
+}
+.black-half {
+  animation: unmelt-vertical 10s infinite;
+}

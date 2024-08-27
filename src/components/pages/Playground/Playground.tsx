@@ -9,6 +9,8 @@ import {
 import { useObservable } from "micro-observables";
 import { useServices } from "@/domain/core/services";
 import toast, { Toaster } from "react-hot-toast";
+import { Loader } from "@/components/ui/Loader";
+import { Library } from "./Library";
 
 function truncateAddress(address: string, numChars: number = 4): string {
   if (address.length <= 2 * numChars) {
@@ -40,6 +42,7 @@ export const Playground = () => {
   const [open, setOpen] = useState(false);
   const { rpcService, moveTxService, wsService } = useServices();
   const userNfts = useObservable(rpcService.userNfts);
+  let reversedNfts = userNfts?.slice().reverse();
   const currentAccount = useCurrentAccount();
   const [model, setModel] = useState("flux1_schnell");
   const loading = useObservable(rpcService.loading);
@@ -76,7 +79,7 @@ export const Playground = () => {
       <div className="container">
         <div className="result">
           {loading ? (
-            <div className="loading">Loading ...</div>
+            <Loader />
           ) : (
             <img
               className="result-image-img"
@@ -129,6 +132,14 @@ export const Playground = () => {
         onOpenChange={(open) => setOpen(open)}
       />
       <Toaster />
+      <div>
+        {(userNfts?.length ?? 0) > 0 && (
+          <div className="text-center text-black mt-2">
+            You have {userNfts?.length} NFTs
+          </div>
+        )}
+        <Library userNfts={reversedNfts}></Library>
+      </div>
     </div>
   );
 };
