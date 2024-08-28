@@ -52,6 +52,10 @@ export class WsService {
   listenInferenceFinished() {
     if (!this.socket) return;
     this.socket.on("inferenceFinished", async (event) => {
+      if (event.status === "error") {
+        toast.error(`Inference failed: ${event.error}`, { duration: 2000 });
+        return;
+      }
       console.log("inferenceFinished", event);
       toast.success(`Inference finished: ${event}`, { duration: 2000 });
       await this.rpcService.getUserNfts();
