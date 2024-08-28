@@ -43,10 +43,13 @@ export class MoveTxService {
     size?: string,
   ) {
     const priceModel = prices.find((price) => price.name === modelName);
-    console.log({ modelName, price: priceModel.value, prompt, size });
     if (!priceModel) {
+      toast.error(
+        `Price model ${modelName} not found, if error persists please contact support on discord`,
+      );
       throw new Error(`Price model ${modelName} not found`);
     }
+    console.log({ modelName, price: priceModel.value, prompt, size });
     const tx = new Transaction();
     const prompt_data = tx.pure.string(
       JSON.stringify({

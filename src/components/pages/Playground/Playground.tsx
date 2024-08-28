@@ -50,6 +50,7 @@ export const Playground = () => {
     "8bit, retro, twitter profile picture alien republic army neuromorphic, artificial intelligence vibe",
   );
   const price = useObservable(rpcService.price);
+  console.log({ price });
 
   const formatedPrice = formatPrice(price);
 

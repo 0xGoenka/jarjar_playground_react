@@ -9,9 +9,9 @@ import { Playground } from "./components/pages/Playground/Playground";
 
 ReactGA.initialize("G-RPNVRXK9JB");
 ReactGA.send({
-  hitType: "pageview mint.jarjar.xyz/",
+  hitType: "pageview playground.jarjar.xyz/",
   page: "/",
-  title: "mint.jarjar.xyz/",
+  title: "playground.jarjar.xyz",
 });
 
 const queryClient = new QueryClient();

@@ -27,7 +27,10 @@ export class WsService {
     if (!this.socket) return;
     this.socket.on("queueSizeUpdate", (size) => {
       console.log("queueSizeUpdate", size);
-      toast.success(`Oracle queue size updated to ${size}`, { duration: 2000 });
+      if (size > 3)
+        toast.success(`Oracle queue is High expect delay. size: ${size}`, {
+          duration: 2000,
+        });
     });
   }
 
