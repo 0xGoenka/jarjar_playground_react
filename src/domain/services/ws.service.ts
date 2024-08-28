@@ -35,7 +35,7 @@ export class WsService {
     if (!this.socket) return;
     this.socket.on("eventStatus", (event) => {
       console.log("eventStatus", event);
-      toast.success(`Oracle received inference request: ${event}`, {
+      toast.success(`Oracle received inference request`, {
         duration: 2000,
       });
     });
@@ -45,7 +45,7 @@ export class WsService {
     if (!this.socket) return;
     this.socket.on("inferenceStart", (event) => {
       console.log("inferenceStart", event);
-      toast.success(`Inference started: ${event}`, { duration: 2000 });
+      toast.success(`Inference started`, { duration: 2000 });
     });
   }
 
@@ -53,11 +53,11 @@ export class WsService {
     if (!this.socket) return;
     this.socket.on("inferenceFinished", async (event) => {
       if (event.status === "error") {
-        toast.error(`Inference failed: ${event.error}`, { duration: 2000 });
+        toast.error(`Inference failed`, { duration: 2000 });
         return;
       }
       console.log("inferenceFinished", event);
-      toast.success(`Inference finished: ${event}`, { duration: 2000 });
+      toast.success(`Inference finished: ${event.status}`, { duration: 2000 });
       await this.rpcService.getUserNfts();
       this.rpcService.loading.set(false);
     });
