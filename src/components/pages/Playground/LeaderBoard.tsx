@@ -9,6 +9,8 @@ export const Leaderboard = () => {
   const collections = useObservable(voteService.collections);
   console.log({ collections });
 
+  collections?.sort((a, b) => b.voteCount - a.voteCount);
+
   return (
     <>
       <div>
