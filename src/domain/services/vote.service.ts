@@ -41,6 +41,9 @@ export class VoteService {
   }
 
   async getCollectionsWithUserVote() {
+    if (!this.userAddress) {
+      return;
+    }
     const result = await this.apiService.post(
       "art-work/get-all-with-user-vote",
       {
@@ -52,6 +55,11 @@ export class VoteService {
   }
 
   async submitVote(artworkId: number) {
+    if (!this.userAddress) {
+      toast.error("Please connect your wallet");
+      return;
+    }
+
     try {
       const result = await this.apiService.post("vote", {
         userAddress: this.userAddress,
