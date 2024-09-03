@@ -44,7 +44,7 @@ function App() {
               <Router>
                 <Header></Header>
                 <Switch>
-                  <Route path="/leaderboard/:scrollTo">
+                  <Route path="/leaderboard/:scrollTo?">
                     <ScrollToElement>
                       <Leaderboard />
                     </ScrollToElement>
@@ -58,7 +58,7 @@ function App() {
                   <Route path="/collection">
                     <Collection />
                   </Route>
-                  <Route path="/">
+                  <Route exact path="/">
                     <Playground />
                   </Route>
                 </Switch>

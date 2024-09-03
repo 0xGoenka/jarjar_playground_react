@@ -11,6 +11,9 @@ const ScrollToElement = ({
   const { scrollTo } = useParams<{ scrollTo: string }>();
   const { voteService } = useServices();
   const collections = useObservable(voteService.collections);
+
+  console.log({ collections });
+
   const [hadScrolled, setHadScrolled] = useState(false);
   console.log({ scrollTo });
 
@@ -27,7 +30,7 @@ const ScrollToElement = ({
       element.classList.add("highlight-animation");
       setTimeout(() => {
         element.classList.remove("highlight-animation");
-      }, 2000); // Adjust time based on your animation duration
+      }, 4000); // Adjust time based on your animation duration
       setHadScrolled(true);
     }
   }, [scrollTo, collections]);
@@ -43,7 +46,7 @@ const ScrollToElement = ({
           100% { background-color: transparent; }
         }
         .highlight-animation {
-          animation: highlight 2s ease-in-out;
+          animation: highlight 2s ease-in-out infinite;
         }
       `}</style>
       {children}
