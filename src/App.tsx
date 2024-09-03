@@ -6,6 +6,13 @@ import { createNetworkConfig } from "@mysten/dapp-kit";
 import ReactGA from "react-ga4";
 import { ServicesProvider } from "@/domain/core/services";
 import { Playground } from "./components/pages/Playground/Playground";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Collection } from "./components/pages/Playground/Collection";
+import { Leaderboard } from "./components/pages/Playground/LeaderBoard";
+import { Header } from "./components/pages/Playground/Header";
+
+import { Announcement } from "./components/pages/Visual/Announcement";
+import { Contest } from "./components/pages/Visual/Contest";
 
 ReactGA.initialize("G-RPNVRXK9JB");
 ReactGA.send({
@@ -32,7 +39,28 @@ function App() {
       >
         <ServicesProvider>
           <WalletProvider autoConnect>
-            <Playground />
+            <>
+              <Router>
+                <Header></Header>
+                <Switch>
+                  <Route path="/leaderboard">
+                    <Leaderboard />
+                  </Route>
+                  <Route path="/contest">
+                    <Contest />
+                  </Route>
+                  <Route path="/announcement">
+                    <Announcement />
+                  </Route>
+                  <Route path="/collection">
+                    <Collection />
+                  </Route>
+                  <Route path="/">
+                    <Playground />
+                  </Route>
+                </Switch>
+              </Router>
+            </>
           </WalletProvider>
         </ServicesProvider>
       </SuiClientProvider>

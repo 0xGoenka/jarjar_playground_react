@@ -76,8 +76,7 @@ export const Form = () => {
             suiClient,
             model,
             price,
-            prompt +
-              ', spelling out "jarjar.xyz" once on the bottom of the image',
+            prompt,
           );
         }}
       >

@@ -1,19 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./playground.css";
-import { ConnectModal, useCurrentAccount } from "@mysten/dapp-kit";
+import { useCurrentAccount } from "@mysten/dapp-kit";
 import { useObservable } from "micro-observables";
 import { useServices } from "@/domain/core/services";
-import { Toaster } from "react-hot-toast";
-import { Library } from "./Library";
 import { ImageContainer } from "./ImageContainer";
-import { Header } from "./Header";
 import { Form } from "./Form";
 
 export const Playground = () => {
-  const [open, setOpen] = useState(false);
   const { rpcService, wsService } = useServices();
   const userNfts = useObservable(rpcService.userNfts);
-  let reversedNfts = userNfts?.slice().reverse();
   const currentAccount = useCurrentAccount();
   const loading = useObservable(rpcService.loading);
 
@@ -29,18 +24,11 @@ export const Playground = () => {
 
   return (
     <div className="body">
-      <Header setOpen={setOpen}></Header>
+      <h1 className="text-center text-black mb-8 text-3xl">Playground</h1>
       <div className="container">
         <ImageContainer loading={loading} userNfts={userNfts} />
         <Form />
       </div>
-      <ConnectModal
-        trigger
-        open={open}
-        onOpenChange={(open) => setOpen(open)}
-      />
-      <Toaster />
-      <Library userNfts={reversedNfts}></Library>
     </div>
   );
 };
