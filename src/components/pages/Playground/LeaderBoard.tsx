@@ -16,7 +16,11 @@ export const Leaderboard = () => {
       <div>
         <h1 className="text-center text-black mb-8 text-3xl">Leaderboard</h1>
         {collections?.map((collection) => (
-          <div className="text-black nft-box" key={collection.id}>
+          <div
+            className="text-black nft-box"
+            key={collection.id}
+            id={collection.id.toString()}
+          >
             <div className="flex justify-between mb-2">
               <span className="mt-2">
                 <span className="font-bold mr-3">Model: </span>{" "}

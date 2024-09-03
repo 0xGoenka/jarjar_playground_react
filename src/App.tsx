@@ -13,6 +13,7 @@ import { Header } from "./components/pages/Playground/Header";
 
 import { Announcement } from "./components/pages/Visual/Announcement";
 import { Contest } from "./components/pages/Visual/Contest";
+import ScrollToElement from "./components/pages/Playground/ScrollTo";
 
 ReactGA.initialize("G-RPNVRXK9JB");
 ReactGA.send({
@@ -43,8 +44,10 @@ function App() {
               <Router>
                 <Header></Header>
                 <Switch>
-                  <Route path="/leaderboard">
-                    <Leaderboard />
+                  <Route path="/leaderboard/:scrollTo">
+                    <ScrollToElement>
+                      <Leaderboard />
+                    </ScrollToElement>
                   </Route>
                   <Route path="/contest">
                     <Contest />
