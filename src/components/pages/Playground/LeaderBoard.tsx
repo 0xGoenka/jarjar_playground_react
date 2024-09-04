@@ -5,6 +5,7 @@ import { ThumbsUp } from "lucide-react";
 import { ArtWork } from "@/domain/services/types";
 import { TwitterShareButton } from "react-share";
 import { BsTwitterX } from "react-icons/bs";
+import ExpandableText from "./Expandable";
 
 export const Leaderboard = () => {
   const { voteService } = useServices();
@@ -33,15 +34,14 @@ export const Leaderboard = () => {
               <div className="mt-2">
                 <span className="font-bold mr-3">Model: </span>{" "}
                 {collection.model_name}
-                <span className="font-bold ml-3 mr-3">
-                  Collection id:{" "}
-                </span>{" "}
+                <span className="font-bold ml-3 mr-3">id: </span>{" "}
                 {collection.id}
               </div>
             </div>
             <div>
               <span className="font-bold">Prompt: </span>
-              {collection.prompt}
+              <ExpandableText text={collection.prompt} />
+              {/* {collection.prompt} */}
             </div>
             <NftsByPromptAndModel collection={collection} />
             <div className="flex flex-row justify-center items-center mt-4">
