@@ -2,7 +2,6 @@ html,
 body {
   margin: 0px;
   padding: 10px;
-  width: 100%;
   background-color: #e0e5ec;
 }
 
@@ -14,7 +13,6 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  width: 100%;
 }
 
 select,
@@ -33,7 +31,6 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   margin-bottom: 50px; /* Increased space below header */
   padding: 20px;
   background-color: #e0e5ec;
@@ -98,7 +95,6 @@ textarea {
     8px 8px 15px #a3b1c6,
     -8px -8px 15px #ffffff;
   max-width: 600px;
-  width: 100%;
 }
 
 .result {

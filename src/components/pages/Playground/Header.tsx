@@ -29,14 +29,18 @@ export const Header = () => {
   return (
     <div className="w-full align-center justify-center flex">
       <div className="header">
-        <div className="flex flex-row">
+        <div className="md:flex flex-row">
           <Link to="/">
-            <button className="connect-wallet mr-4">Playground</button>
+            <button className="connect-wallet mr-4 mb-4 md:mb-0">
+              Playground
+            </button>
           </Link>
           {currentAccount?.address ? (
             <>
               <Link to="/collection">
-                <button className="connect-wallet mr-4">My collection</button>
+                <button className="connect-wallet mr-4 md:mb-0 mb-4">
+                  My collection
+                </button>
               </Link>
 
               <Link to="/leaderboard">
