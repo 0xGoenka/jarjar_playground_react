@@ -47,7 +47,7 @@ export const Leaderboard = () => {
             <div className="flex flex-row justify-center items-center mt-4">
               <div className="connect-wallet flex-row flex justify-center items-center mr-4">
                 <TwitterShareButton
-                  url={`https://jarjar.xyz/leaderboard/${collection.id}`}
+                  url={`https://playground.jarjar.xyz/leaderboard/${collection.id}`}
                   via="JARJARxyz"
                   title={text}
                 >
