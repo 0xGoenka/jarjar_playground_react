@@ -3,6 +3,7 @@ import { ConnectModal, useCurrentAccount } from "@mysten/dapp-kit";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { Banner } from "./Banner";
 
 function truncateAddress(address: string, numChars: number = 4): string {
   if (address.length <= 2 * numChars) {
@@ -27,44 +28,47 @@ export const Header = () => {
     return () => wsService.disconnect();
   }, [currentAccount]);
   return (
-    <div className="w-full align-center justify-center flex">
-      <div className="header">
-        <div className="md:flex flex-row">
-          <Link to="/">
-            <button className="connect-wallet mr-4 mb-4 md:mb-0">
-              Playground
-            </button>
-          </Link>
-          {currentAccount?.address ? (
-            <>
-              <Link to="/collection">
-                <button className="connect-wallet mr-4 md:mb-0 mb-4">
-                  My collection
-                </button>
-              </Link>
+    <>
+      <Banner />
+      <div className="w-full align-center justify-center flex mt-8">
+        <div className="header">
+          <div className="md:flex flex-row">
+            <Link to="/">
+              <button className="connect-wallet mr-4 sm:mb-0 mb-4">
+                Playground
+              </button>
+            </Link>
+            {currentAccount?.address ? (
+              <>
+                <Link to="/collection">
+                  <button className="connect-wallet mr-4 sm:mb-0 mb-4">
+                    My collection
+                  </button>
+                </Link>
 
-              <Link to="/leaderboard">
-                <button className="connect-wallet mr-4">Leaderboard</button>
-              </Link>
-            </>
-          ) : null}
-          {/* <div className="title">JarJar Playground</div> */}
+                <Link to="/leaderboard">
+                  <button className="connect-wallet mr-4">Leaderboard</button>
+                </Link>
+              </>
+            ) : null}
+            {/* <div className="title">JarJar Playground</div> */}
+          </div>
+          <button
+            className="connect-wallet"
+            onClick={() => !currentAccount && setOpen(true)}
+          >
+            {currentAccount
+              ? truncateAddress(currentAccount.address)
+              : "Connect Wallet"}
+          </button>
         </div>
-        <button
-          className="connect-wallet"
-          onClick={() => !currentAccount && setOpen(true)}
-        >
-          {currentAccount
-            ? truncateAddress(currentAccount.address)
-            : "Connect Wallet"}
-        </button>
+        <ConnectModal
+          trigger
+          open={open}
+          onOpenChange={(open) => setOpen(open)}
+        />
+        <Toaster />
       </div>
-      <ConnectModal
-        trigger
-        open={open}
-        onOpenChange={(open) => setOpen(open)}
-      />
-      <Toaster />
-    </div>
+    </>
   );
 };

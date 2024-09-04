@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+.info-banner {
+  margin: 0;
+  padding: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  top: 0;
+  left: 0;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.moving-text-container {
+  display: flex;
+  width: 200%;
+  animation: moveText 30s linear infinite;
+}
+
+.moving-text {
+  flex: 0 0 50%;
+  white-space: nowrap;
+  color: white;
+  font-size: 18px;
+  padding: 0 20px;
+  text-shadow: 0 0 5px rgba(253, 79, 43, 0.3);
+}
+
+.highlight {
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #fd4f2b;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.info-banner:hover .moving-text-container {
+  animation-play-state: paused;
+}
+
+/* Button style */
+.cta-button {
+  display: inline-block;
+  padding: 8px 15px;
+  margin-left: 20px;
+  font-size: 16px;
+  color: #000000;
+  background-color: #fd4f2b;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #ff6b4a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(253, 79, 43, 0.5);
+}
+
+/* Rest of page styling */
+.content {
+  margin-top: 70px;
+  padding: 20px;
+}
